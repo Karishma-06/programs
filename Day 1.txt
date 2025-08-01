@@ -1,0 +1,110 @@
+Pattern - 1 
+
+*****
+ ****
+  ***
+   **
+    *
+   **
+  ***
+ ****
+*****
+
+import java.util.*;
+public class Main{
+public static void main(String[] args){
+    Scanner s = new Scanner(System.in);
+    int n = s.nextInt();
+    int sp = 0;
+    int st = n;
+    for(int i = 0;i<(2*n-1);i++){
+        for(int j=0;j<sp;j++){
+          System.out.print(" ");
+        }   
+        for(int j=0;j<st;j++){
+            System.out.print("*");
+        }
+        System.out.println();
+        if(i<n-1){
+            sp++;
+            st--;
+        }
+        else{
+            st++;
+            sp--;
+        }
+    }
+}}
+
+
+Pattern - 2
+
+*    *
+**  **
+******
+**  **
+*    *
+
+import java.util.*;
+public class Main{
+public static void main(String[] args){
+    Scanner s = new Scanner(System.in);
+    int n = s.nextInt();
+    int sp = 2*n-2;
+    int st=1;
+    for(int i = 0;i<(2*n-1);i++){
+        for(int j=0;j<st;j++){
+          System.out.print("*");
+        }   
+        for(int j=0;j<sp;j++){
+            System.out.print(" ");
+        }
+        for(int j=0;j<st;j++){
+          System.out.print("*");
+        }
+        System.out.println();
+        if(i<n-1){
+            st++;
+            sp-=2;
+        }
+        else{
+            st--;
+            sp+=2;
+            
+        }
+    }
+}}
+
+Pattern - 3 
+
+*****
+ ****
+  ***
+   **
+    *
+
+import java.util.*;
+public class Main{
+public static void main(String[] args){
+    Scanner s = new Scanner(System.in);
+    int n = s.nextInt();
+    int sp = 0;
+    int st = n;
+    for(int i = 0;i<n;i++){
+        for(int j=0;j<sp;j++){
+          System.out.print(" ");
+        }   
+        for(int j=0;j<st;j++){
+            System.out.print("*");
+        }
+        System.out.println();
+        if(i<n-1){
+            sp++;
+            st--;
+        }
+        else{
+            st++;
+            sp--;
+        }
+    }
+}}

@@ -1,0 +1,203 @@
+1.Sum of natural numbers
+
+import java.util.*;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int sum=0;
+        for(int i=1;i<=n;i++)
+             sum+=i;
+    System.out.print(sum);
+    }
+}
+
+2.Sum of digits
+
+class Solution {
+    static int sumOfDigits(int n) {
+        int sum=0;
+        int l;
+        while(n!=0){
+        l=n%10;
+        sum+=l;
+        n=n/10;
+        }
+        return sum;
+    }
+}
+
+3.Reverse the number
+
+class Solution {
+    public int reverseDigits(int n) {
+        int rev=0;
+        int l;
+        while(n!=0){
+            l=n%10;
+            rev=rev*10+l;
+            n=n/10;
+        }
+        return rev;
+        
+    }
+}
+
+4.Number palindrome
+
+class Solution {
+    public boolean isPalindrome(int n) {
+      int a=n;
+      int l;
+      int rev=0;
+      while(n!=0){
+          l=n%10;
+          rev=rev*10+l;
+          n=n/10;
+      }
+      if(rev==a)
+         return true;
+      else
+          return false;
+         
+    }
+}
+
+5.Count the no of digits
+
+public class Solution {
+    public static int countDigits(int n){
+        int sum=0;
+        int l;
+        while(n!=0){
+            l=n%10;
+            sum++;
+            n=n/10;
+        }
+        return sum;
+    }
+}
+
+6.Factorial
+
+class Solution {
+    static int factorial(int n) {
+        int fact=1;
+        for(int i=1;i<=n;i++)
+            fact=fact*i;
+        return fact;
+    }
+}
+
+7.Fibonacci series
+
+class Solution {
+    public int fib(int n) {
+        if(n<=1)
+            return n;
+        return fib(n-1)+fib(n-2);
+    }
+}
+
+8.Armstrong number
+
+class Solution {
+    static boolean armstrongNumber(int n) {
+        int x=n;
+        int l;
+        int c=0;
+        while(n!=0){
+            l=n%10;
+            c+=Math.pow(l,3);
+            n=n/10;
+        }
+        if(x==c)
+           return true;
+        else
+           return false;
+        
+    }
+}
+
+9.Print all divisor
+
+[more time complexity]
+
+import java.util.*;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        for(int i=1;i<n;i++){
+            if(n%i==0){
+                System.out.print(i+" ");
+            }
+        }
+    }
+}
+             OR [less time complexity]
+
+import java.util.*;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        for(int i=1;i<Math.sqrt(n);i++){
+            if(n%i==0){
+                System.out.print(i+" ");
+                if(i!=n/i){
+                    System.out.print(n/i+" ");
+                }
+            }
+        }
+    }
+}
+
+10.prime numbers
+
+class Solution {
+    static boolean isPrime(int n) {
+        if(n==1)
+        return false; 
+        for(int i=2;i<=Math.sqrt(n);i++){
+            if(n%i==0)
+            return false;
+        }
+        return true;
+        
+    }
+}
+
+11.Perfect number
+
+class Solution {
+    public boolean checkPerfectNumber(int n) {
+        int sum=0;
+        for(int i=1;i<n;i++){
+            if(n%i==0)
+              sum+=i;
+        }
+        if(sum==n)
+          return true;
+        else
+        return false;  
+    }
+}
+
+12.Add digits
+
+class Solution {
+    public int addDigits(int num) {
+        while(num>9){
+        int sum=0;
+        while(num!=0){
+            int r=num %10;
+            sum+=r;
+            num=num/10;
+        }
+        num=sum;
+        }
+        return num;
+        
+    }
+}
