@@ -1,0 +1,220 @@
+1.N palindromic number(test questions)
+
+import java.util.*;
+public class Main{
+    public static boolean ispalin(int n){
+        int rev=0;
+        int temp=n;
+        int l=0;
+        while(n!=0){
+            l=n%10;
+            rev=rev*10+l;
+            n/=10;
+        }
+        return(rev==temp);
+    }
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int sum=0;
+        int c=0;
+        int num=1;
+        while(c<n){
+            if(ispalin(num)){
+                sum+=num;
+                c++;
+            }
+            num++;
+        }
+        System.out.print(sum);
+    }
+    
+}
+
+2.Happy number(test questions)
+
+import java.util.*;
+public class Main
+{   public static int sumofsqr(int n){
+    int sum=0;
+    while(n!=0){
+        int rem=n%10;
+        sum+=rem*rem;
+        n/=10;
+    }return sum;
+}
+public static void main(String[] args) {
+Scanner a = new Scanner(System.in);
+int n=a.nextInt();
+int temp=n;
+while(sumofsqr(n)!=temp){
+   if(sumofsqr(n)==1){
+       System.out.print("Happy");
+       return;
+   }
+   n= sumofsqr(n);
+}System.out.print("Not Happy");
+}
+}
+
+3.Natural sum(gfg)
+
+class Solution {
+    public int find(int n) {
+        int i=1;
+        int t;
+        while(true){
+            t=i*(i+1)/2;
+            if(t==n)
+                return i;
+            else if(t>n)
+                return -1;
+            i++;
+        }
+    }
+}
+
+4.Sum of array(gfg)
+
+class Solution {
+    int arraySum(int arr[]) {
+        int sum=0;
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+        }
+        return sum;
+        
+    }
+}
+
+5.Print leftover  Elements(gfg)
+
+class Solution {
+    public static int leftElement(int[] arr) {
+        Arrays.sort(arr);
+        int n=arr.length;
+        return arr[(n-1)/2];
+        
+    }
+}
+
+6.Second largest(gfg)
+
+class Solution {
+    public int getSecondLargest(int[] arr) {            
+        int m1=-1;
+        int m2=-1;
+        for(int i=0;i<arr.length;i++){
+            if(m1<arr[i]){
+                m2=m1;
+                m1=arr[i];
+            }else if(m1>arr[i] && m2<arr[i])
+            m2=arr[i];
+        }
+        
+        return m2;
+    }
+}
+
+7.Specific element in an array(gfg)
+
+class Solution {
+    public static int findElementAtIndex(int key, int[] arr) {
+        return arr[key];
+        
+    }
+}
+
+8.Median of an array(gfg)
+
+class Solution {
+    public double findMedian(int[] arr) {
+        Arrays.sort(arr);
+        int n=arr.length; int med=0;
+        for(int i=0;i<n;i++){
+            if(n%2!=0)
+                med=arr[(n/2)];
+            else
+                return (double)((arr[(n/2)-1]+arr[(n/2)])/2.0);
+        }
+        return med;
+    }
+}
+
+9.reverse string(leetcode)
+
+class Solution {
+    public void reverseString(char[] s) {
+        int n=s.length;
+        int i=0;
+        int j=n-1;
+        while(i<j){
+            char temp=s[i];
+            s[i]=s[j];
+            s[j]=temp;
+            i++;
+            j--;
+        }
+        
+    }
+}
+
+10.Palindrome array(gfg)
+
+class Solution {
+    public static boolean isPerfect(int[] arr) {
+        int n=arr.length;
+        int i=0;
+        int j=n-1;
+        int arr1[]=arr.clone();
+        while(i<j){
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            i++;
+            j--;
+        }
+        for(i=0;i<n;i++){
+        if(arr1[i]!=arr[i])
+            return false;
+        }
+            return true;
+    }
+}
+                 [OR]
+
+class Solution {
+    public static boolean isPerfect(int[] arr) {
+        int n=arr.length;
+        int i=0;int j=n-1;
+        while(i<j){
+            if(arr[i] != arr[j])
+                return false;
+            i++;j--;
+        }
+        return true;
+    }
+}
+
+11.Rotate array
+
+class Solution {
+    public void rotate(int[] a, int k) {
+        k=k%a.length;
+        reverse(a,0,a.length-1);
+        reverse(a,0,k-1);
+        reverse(a,k,a.length-1);
+        
+    }
+    public static void reverse(int[] a,int s,int e){
+        while(s<e){
+            int temp=a[s];
+            a[s]=a[e];
+            a[e]=temp;
+            s++;
+            e--;
+        }
+    }
+}
+
+
