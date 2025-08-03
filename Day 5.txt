@@ -1,0 +1,157 @@
+1.Missing in array(gfg)
+
+class Solution {
+    int missingNum(int arr[]) {
+        int n=arr.length;
+        Arrays.sort(arr);
+        for(int i=1;i<=n;i++){
+            if(i!=arr[i-1])
+                return i;
+        }
+        return n+1;
+    }
+}
+
+2.Magic matrix
+
+mport java.util.*;
+public class Main
+{
+public static void main(String[] args) {
+Scanner a = new Scanner (System.in);
+int n=a.nextInt();
+int m=a.nextInt();
+int [][] arr = new int[n][m];
+for(int i=0;i<n;i++){
+   for(int j=0;j<m;j++)
+       arr[i][j]=a.nextInt();
+}
+int diasum=0;
+for(int i=0;i<n;i++){
+   for(int j=0;j<m;j++){
+       if(i==j)
+           diasum+=arr[i][j];
+   }
+}
+int secsum=0;
+for(int i=0;i<n;i++){
+   for(int j=0;j<m;j++){
+       if(i+j==n-1)
+           secsum+=arr[i][j];
+   }
+}
+if(diasum != secsum){
+   System.out.print(false);
+   return;
+}
+
+for(int i=0;i<n;i++){
+   int rsum=0;
+   for(int j=0;j<m;j++){
+       rsum+=arr[i][j];
+   }
+   if(rsum!=diasum){
+       System.out.print(false);
+       return ;
+   }
+}
+for(int i=0;i<n;i++){
+   int csum=0;
+   for(int j=0;j<m;j++){
+       csum+=arr[j][i];
+   }
+   if(csum!=diasum){
+       System.out.print(false);
+       return ;
+   }
+}
+
+3.Transpose matrix(leetcode)
+
+lass Solution {
+    public int[][] transpose(int[][] A) {
+        int T[][]=new int[A[0].length][A.length];
+        for(int i=0;i<A.length;i++){
+            for(int j=0;j<A[0].length;j++){
+                T[j][i]=A[i][j];
+            }
+        }
+        return T;
+    }
+}
+
+
+4.2d search
+
+import java.util.*;
+public class Main{
+    public static boolean binarySearch(int[]arr,int k,int n){
+        int low=0;
+        int high=arr.length-1;
+       while(low<high){
+            int mid=low+(high-low)/2;
+            if(arr[mid]==k)
+            return true;
+            if(arr[mid]<k){
+                low=mid+1;
+            }
+            else
+                high=mid-1;
+       }
+       return false;
+    }
+    public static void main(String[]args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int []arr=new int[n];
+        for(int i=0;i<n;i++)
+        arr[i]=sc.nextInt();
+        int k=sc.nextInt();
+        System.out.print(binarySearch(arr,k,n));
+    }
+}
+
+5.sprial(leetcode nd gfg)
+
+import java.util.*;
+
+class Solution {
+    public List<Integer> spiralOrder(int[][] arr) {
+        List<Integer> ll = new ArrayList<>();
+        int row = arr.length;
+        int col = arr[0].length;
+        int top = 0, bot = row - 1;
+        int left = 0, right = col - 1;
+        int total = row * col, c = 0;
+
+        while (c < total) {
+            // left to right
+            for (int j = left; j <= right && c < total; j++) {
+                ll.add(arr[top][j]);
+                c++;
+            }
+            top++;
+
+            // top to bottom
+            for (int i = top; i <= bot && c < total; i++) {
+                ll.add(arr[i][right]);
+                c++;
+            }
+            right--;
+
+            // right to left
+            for (int j = right; j >= left && c < total; j--) {
+                ll.add(arr[bot][j]);
+                c++;
+            }
+            bot--;
+
+            // bottom to top
+            for (int i = bot; i >= top && c < total; i--) {
+                ll.add(arr[i][left]);
+                c++;
+            }
+            left++;
+        }
+
+        return ll;
