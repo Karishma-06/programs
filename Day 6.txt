@@ -1,0 +1,108 @@
+1.Find all duplicates in array(leetcode)
+
+class Solution {
+    public List<Integer> findDuplicates(int[] n) {
+        List<Integer>ll=new ArrayList<>();
+        for(int i=0;i<n.length;i++){
+            int index=Math.abs(n[i])-1;
+        if(n[index]<0)
+            ll.add(Math.abs(n[i]));
+        else
+            n[index]=n[index]* -1;    
+        }return ll;
+    }
+    
+}
+
+2.Array leaders(gfg)
+
+class Solution {
+    static ArrayList<Integer> leaders(int arr[]) {
+        ArrayList<Integer> ans=new ArrayList<>();
+        int n=arr.length;
+        for(int i=0;i<n;i++){
+            boolean isGreat=true;
+            for(int j=i+1;j<n;j++){
+                if(arr[i]<arr[j]) isGreat=false;    
+            }
+            if(isGreat) 
+            ans.add(arr[i]);
+        }
+        return ans;
+    }
+}
+
+3.Buuble sort(gfg) or sort colors(leetcode)
+
+class Solution {
+    public void bubbleSort(int[] arr) {
+         int n=arr.length;
+         for(int i=0;i<n;i++){
+             for(int j=0;j<n-i-1;j++){
+                 if(arr[j]>arr[j+1]){
+                     int temp=arr[j];
+                     arr[j]=arr[j+1];
+                     arr[j+1]=temp;
+                 }
+             }
+         }
+        
+    }
+}
+
+4.Move zeroes(leetcode)
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int n=nums.length;
+        int []arr=new int[n];
+        int c=0;
+        for(int i=0;i<n;i++){
+            if(nums[i]!=0)
+                arr[c++]=nums[i];            
+        }
+        for(int i=0;i<n;i++){
+            nums[i]=arr[i];
+        }
+        
+    }
+}
+
+5.Find All Numbers Disappeared in an Array(leetcode)
+
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {   
+        List<Integer>ll=new ArrayList<>();
+        int n=nums.length;
+        for(int i=0;i<n;i++){
+            int index=Math.abs(nums[i])-1;
+        if(nums[index]>0)
+            nums[index]=nums[index]* -1;    
+        }
+        for(int i=0;i<n;i++){
+            if(nums[i]>0)
+                ll.add(i+1); 
+        }
+        return ll;
+    }
+}
+
+6.Even Odd Sum(gfg)
+
+class Solution {
+    ArrayList<Integer> EvenOddSum(int n, int arr[]) {
+        ArrayList<Integer>ll=new ArrayList<>();
+        int o=0;
+        int e=0;
+        for(int i=0;i<n;i++){
+            if(i%2==0)
+                e+=arr[i];
+            else
+                o+=arr[i];
+        }
+        ll.add(e);
+        ll.add(o);
+        return ll;
+        
+    }
+}
