@@ -1,0 +1,403 @@
+1.  Singly LinkedList (Insert at end)
+
+import java.util.*;
+class node{
+    int data;
+    node next;
+    node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class LinkedList{
+    node head,tail;
+    void insertAtLast(int num){
+        node newNode = new node(num);
+        if(head==null){
+            head=newNode;
+            tail=newNode;
+        }
+        else{
+            tail.next=newNode;
+            tail=newNode;
+        }
+        
+    }
+    void display(){
+        node temp= head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner a = new Scanner (System.in);
+		LinkedList ll = new LinkedList();
+		ll.insertAtLast(11);
+		ll.insertAtLast(22);
+		ll.insertAtLast(33);
+		ll.insertAtLast(44);
+		
+		ll.display();
+	}
+}
+
+
+2.  Doubly LinkesList (Insert at end)
+
+class node{
+    int data;
+    node next;
+    node prev;
+    node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class LinkedList{
+    node head,tail;
+    void insertLast(int num){
+        node newNode=new node(num);
+        if(head==null){
+            head=newNode;
+            tail=newNode;
+        }else{
+            tail.next=newNode;
+            newNode.prev=tail;
+            tail=newNode;
+        }
+    }
+    void display(){
+        node temp=tail;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.prev;
+        }
+    }
+}
+    
+public class Main
+{
+    public static void main(String[] args) {
+        LinkedList ll=new LinkedList();
+        ll.insertLast(10);
+        ll.insertLast(20);
+        ll.insertLast(30);
+        ll.insertLast(40);
+        ll.insertLast(50);
+        ll.display();
+    }
+}
+
+
+3.  Circular Singly Linked List 
+
+class node{
+    int data;
+    node next;
+    node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class LinkedList{
+    node head,tail;
+    void insertLast(int num){
+        node newNode=new node(num);
+        if(head==null){
+            head=newNode;
+            tail=newNode;
+        }else{
+            tail.next=newNode;
+            tail=newNode;
+        }
+        tail.next=head;
+    }
+    void display(){
+        node temp=head;
+        do{
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }while(temp!=head);
+    }
+}
+public class Main
+{
+    public static void main(String[] args) {
+        LinkedList ll=new LinkedList();
+        ll.insertLast(20);
+        ll.insertLast(80);
+        ll.insertLast(90);
+        ll.insertLast(60);
+        ll.insertLast(30);
+        ll.display();
+    }
+}
+
+4.  Singly linkedlist (Insert at begin)
+
+import java.util.*;
+class node{
+    int data;
+    node next;
+    node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class LinkedList{
+    node head,tail;
+    void insertAtLast(int num){
+        node newNode = new node(num);
+        if(head == null){
+            head = newNode;
+            tail = newNode;
+        }else{
+            tail.next=newNode;
+            tail=newNode;
+        }
+    }
+    void insertAtBeg(int num){
+        node newNode =new node(num);
+        if(head==null){
+            head=newNode;
+            tail=newNode;
+        }else{
+            newNode.next=head;
+            head=newNode;
+        }
+    }
+    void display(){
+    node temp = head;
+    while(temp!=null){
+        System.out.print(temp.data+" ");
+        temp=temp.next;
+    }
+}
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner a = new Scanner(System.in);
+		LinkedList ll = new LinkedList();
+		ll.insertAtLast(10);
+		ll.insertAtLast(20);
+		ll.insertAtLast(30);
+		ll.insertAtLast(50);
+		
+		ll.insertAtBeg(0);
+		ll.insertAtBeg(-1);
+		
+		ll.display();
+	}
+}
+
+
+5. Singly Linked list (Insert at any pos)
+
+import java.util.*;
+class node{
+    int data;
+    node next;
+    node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class LinkedList{
+    node head,tail;
+    void insertAtLast(int num){
+        node newNode = new node(num);
+        if(head == null){
+            head = newNode;
+            tail = newNode;
+        }else{
+            tail.next=newNode;
+            tail=newNode;
+        }
+    }
+    void insertAtPos(int pos,int num){
+        node front=head,back;
+        node newNode = new node(num);
+        for(int i=0;i<pos-2;i++){
+            front=front.next;
+        }
+        back=front.next;
+        front.next=newNode;
+        newNode.next=back;
+    }
+    void display(){
+    node temp = head;
+    while(temp!=null){
+        System.out.print(temp.data+" ");
+        temp=temp.next;
+    }
+}
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner a = new Scanner(System.in);
+		LinkedList ll = new LinkedList();
+		ll.insertAtLast(10);
+		ll.insertAtLast(20);
+		ll.insertAtLast(30);
+		ll.insertAtLast(50);
+		
+		ll.insertAtPos(0,100);
+		
+		ll.display();
+	}
+}
+
+
+6.  Singly LL Delete at last
+
+
+import java.util.*;
+class node{
+    int data;
+    node next;
+    node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class LinkedList{
+    node head,tail;
+    void insertAtLast(int num){
+        node newNode = new node(num);
+        if(head==null){
+            head=newNode;
+            tail=newNode;
+        }
+        else{
+            tail.next=newNode;
+            tail=newNode;
+        }
+        
+    }
+    void insertPos(int pos,int num){
+        node front=head,back;
+        node newNode=new node(num);
+        
+        for (int i=0;i<pos-1;i++){
+            front=front.next;
+        }
+        back=front.next;
+        front.next=newNode;
+        newNode.next=back;
+    }
+    void deleteEnd(){
+        node temp=head;
+        while(temp.next.next!=null)
+            temp=temp.next;
+        tail=temp;
+        tail.next=null;
+        }
+    
+    void display(){
+        node temp= head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+    }
+}
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner a = new Scanner (System.in);
+        LinkedList ll = new LinkedList();
+        ll.insertAtLast(11);
+        ll.insertAtLast(22);
+        ll.insertAtLast(33);
+        ll.insertAtLast(44);
+        ll.insertPos(2,55);
+        ll.deleteEnd();
+        ll.display();
+    }
+}
+
+
+7.  Singly LL Delete any number 
+
+import java.util.*;
+class node{
+    int data;
+    node next;
+    node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class LinkedList{
+    node head,tail;
+    void insertAtLast(int num){
+        node newNode = new node(num);
+        if(head==null){
+            head=newNode;
+            tail=newNode;
+        }
+        else{
+            tail.next=newNode;
+            tail=newNode;
+        }
+        
+    }
+    void insertPos(int pos,int num){
+        node front=head,back;
+        node newNode=new node(num);
+        
+        for (int i=0;i<pos-1;i++){
+            front=front.next;
+        }
+        back=front.next;
+        front.next=newNode;
+        newNode.next=back;
+    }
+    void deleteEnd(){
+        node temp=head;
+        while(temp.next.next!=null)
+            temp=temp.next;
+        tail=temp;
+        tail.next=null;
+        }
+    void delete(int num){
+        node temp = head;
+        if(head.data==num){
+            head=head.next;
+        }
+        while(temp.next.data !=num){
+            temp=temp.next;
+        }temp.next=temp.next.next;
+        
+    }
+    
+    void display(){
+        node temp= head;
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
+    }
+}
+public class Main
+{
+    public static void main(String[] args) {
+        Scanner a = new Scanner (System.in);
+        LinkedList ll = new LinkedList();
+        ll.insertAtLast(11);
+        ll.insertAtLast(22);
+        ll.insertAtLast(33);
+        ll.insertAtLast(44);
+        ll.insertPos(2,55);
+        ll.delete(22);
+        ll.display();
+    }
+}
+
+8.  
